@@ -2,7 +2,7 @@ class TodoModel {
   final String id;
   final String title;
   final String description;
-  final bool status;
+  late final bool status;
   final String createdby;
 
   TodoModel({

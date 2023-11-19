@@ -21,7 +21,6 @@ class _MyTodoListPageState extends State<MyTodoListPage> {
   late ScaffoldMessengerState _snackbar;
   late TodoRepository todoRepository;
   List<TodoModel> todolist = [];
-
   @override
   void initState() {
     super.initState();
@@ -108,13 +107,26 @@ class _MyTodoListPageState extends State<MyTodoListPage> {
                           Text(todo.description), // Display todo's description
                           Checkbox(
                               value: todo.status,
-                              onChanged: (val) {
+                              onChanged: (value) {
                                 setState(() {
-                                  todoRepository.updateStatus(
-                                      todo.id, status ?? false);
+                                  todoRepository
+                                      .updateStatus(value ?? false, todo.id)
+                                      .then((value) {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+
+                                    getTodoList();
+
+                                    _snackbar.showSnackBar(const SnackBar(
+                                        content:
+                                            Text("Todo has been updated")));
+                                  }).catchError((e) {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                  });
                                   // Update the completion status of the task
-                                  todo.status = val ??
-                                      false; // Update the status of the todo
                                   // Call a function to update the status in your repository/database
                                   // todoRepository.updateTodoStatus(todo.id, newValue);
                                 });
@@ -130,16 +142,18 @@ class _MyTodoListPageState extends State<MyTodoListPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => AddTodoPage(
-                authModel: widget.authModel,
-              ),
-            ),
-          );
+          Navigator.of(context)
+              .push(
+                MaterialPageRoute(
+                  builder: (context) => AddTodoPage(
+                    authModel: widget.authModel,
+                  ),
+                ),
+              )
+              .then((value) => getTodoList());
         },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(255, 128, 189, 238),
+        child: const Icon(Icons.add),
       ),
     );
   }

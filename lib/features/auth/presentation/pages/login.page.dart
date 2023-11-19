@@ -75,8 +75,8 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.all(16.0),
                     child: Card(
                       elevation: 5,
-                      color: Color.fromARGB(
-                          255, 255, 255, 255), // Set the background color here
+                      color: Colors
+                          .deepPurpleAccent, // Set the background color here
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                             Icon(
                               Icons.account_circle,
                               size: 100.0,
-                              color: Colors.blue,
+                              color: Color.fromARGB(255, 243, 33, 208),
                             ),
                             SizedBox(height: 24.0),
                             EmailTextFormField(controller: _emailController),
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                               },
                               child: Text('Login'),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             AuthTextButtonWidget(
                               text: "Don't have an account? Register",
                               onPressed: () {

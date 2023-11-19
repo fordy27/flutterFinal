@@ -53,8 +53,8 @@ class _AddTodoPageState extends State<AddTodoPage> {
             padding: const EdgeInsets.all(16.0),
             child: Card(
               elevation: 5,
-              color: const Color.fromARGB(
-                  255, 6, 2, 124), // Set the background color here
+              color: Color.fromARGB(
+                  255, 54, 169, 173), // Set the background color here
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
@@ -68,7 +68,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
                       const Icon(
                         Icons.account_circle,
                         size: 100.0,
-                        color: Color.fromARGB(255, 1, 28, 49),
+                        color: Color.fromARGB(255, 60, 145, 211),
                       ),
                       TextFormField(
                         controller: titleController,

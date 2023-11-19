@@ -17,7 +17,7 @@ class AuthTextButtonWidget extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: Colors.blue,
+          color: const Color.fromARGB(255, 201, 33, 243),
         ),
       ),
     );

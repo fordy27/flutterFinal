@@ -90,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               Card(
                 elevation: 5,
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 51, 74, 112),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -102,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Icon(
                         Icons.account_circle,
                         size: 100.0,
-                        color: Colors.blue,
+                        color: const Color.fromARGB(255, 243, 33, 131),
                       ),
                       SizedBox(height: 24.0),
                       EmailTextFormField(controller: _emailController),
